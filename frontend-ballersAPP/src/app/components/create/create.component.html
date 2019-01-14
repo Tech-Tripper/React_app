@@ -1,0 +1,35 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Create A New Baller</h3>
+      <mat-divider></mat-divider>
+      <br>
+      <form [formGroup]="createForm" class="create-form">
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Baller Name" formControlName="name" #name >
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+            <input matInput placeholder="Sport" formControlName="sport" #sport >
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+            <input matInput placeholder="Teams" formControlName="teams" #teams >
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+            <input matInput placeholder="Championships" formControlName="championships" #championships >
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+            <mat-select placeholder="Retired" formControlName="retired" #retired>   
+              <mat-option value="Yes">Yes</mat-option>
+              <mat-option value="No">No</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <br><br>
+        <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+        <button type="submit" (click)="addBaller(name.value, sport.value, teams.value, championships.value, retired.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+      </form>
+
+    </section>
+  </mat-card>
+</div>

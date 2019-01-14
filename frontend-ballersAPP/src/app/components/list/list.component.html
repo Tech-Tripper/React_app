@@ -1,0 +1,42 @@
+<div>
+  <br>
+  <mat-card>
+    <button mat-raised-button color="primary" routerLink="/create">Create New Baller</button>
+    <br><br>
+    <mat-divider></mat-divider>
+    <br>
+    <table mat-table [dataSource]="ballers">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+      <ng-container matColumnDef="sport">
+        <th mat-header-cell *matHeaderCellDef>Sport</th>
+        <td mat-cell *matCellDef="let element">{{element.sport}}</td>
+      </ng-container>
+      <ng-container matColumnDef="teams">
+        <th mat-header-cell *matHeaderCellDef>Teams</th>
+        <td mat-cell *matCellDef="let element">{{element.teams}}</td>
+      </ng-container>
+      <ng-container matColumnDef="championships">
+        <th mat-header-cell *matHeaderCellDef>Championships</th>
+        <td mat-cell *matCellDef="let element">{{element.championships}}</td>
+      </ng-container>
+      <ng-container matColumnDef="retired">
+        <th mat-header-cell *matHeaderCellDef>Retired</th>
+        <td mat-cell *matCellDef="let element">{{element.retired}}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="mat-colunm-right">Actions</th>
+        <td mat-cell *matCellDef="let element" class="mat-colunm-right">
+          <button mat-button color="primary" (click)="editBaller(element._id)">Edit</button>
+          <button mat-button color="warn" (click)="deleteBaller(element._id)">delete</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+
+    </table>
+  </mat-card>
+</div>
